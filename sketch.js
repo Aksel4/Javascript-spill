@@ -9,16 +9,17 @@ let meteor = {
 let ekstrahastighetx = -0.5
 let ekstrahastighety = 0.5
 function setup() { 
-  createCanvas(1300, 600); 
+  cnv = createCanvas(1300, 600); 
+  cnv.mousePressed(clicked)
 } 
 
-function mouse() {
-  
-  }
 
 function clicked() {
   let avstand = dist(xpos, ypos, mouseX, mouseY)
   let radius = størrelse/2
+  if(avstand <= radius) {
+    størrelse = 300
+  }
 }
 
 
