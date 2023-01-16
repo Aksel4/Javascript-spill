@@ -1,37 +1,39 @@
 let sirkel = 3
 let xpos = 400
 let ypos = 300
-let størrelse = 50
+let størrelse = 0
 let hp = 3
 let score = 0
 let ekstrahastighetx = -0.5
 let ekstrahastighety = 0.5
-let økningshastighet = 1
+let økningshastighet = .2
 let antallBalls = 1
 let poeng = 0
-let poengsum 
 
 function setup() { 
   cnv = createCanvas(1300, 600); 
   cnv.mousePressed(clicked)
+
 } 
 let liste = [50, 50, 50, 50]
 
+function preLoad() {
+  img = loadImage('Bilder/Stars.jpg') 
+}
 
 function clicked() {
   let avstand = dist(xpos, ypos, mouseX, mouseY)
   let radius = størrelse/2
-  if(avstand <= radius) {
-    
+
+  if(avstand <= radius) {  
     fill(60)
-    størrelse = 50
+    størrelse = 0
     ekstrahastighetx = random(-0.7, 0.7)
     ekstrahastighety = random(-0.7, 0.7)
     xpos = random(300, 1000);
     ypos = random(200, 400);
-    økningshastighet = økningshastighet + 0.2
+    økningshastighet = økningshastighet + 0.1
     poeng = poeng + 1
-
   }
 }
 
@@ -39,9 +41,9 @@ function clicked() {
 
 function draw() { 
   noStroke()
-  background(20)
+  background(30)
 
-  xpos = xpos - ekstrahastighetx
+  xpos = xpos + ekstrahastighetx
   ypos = ypos + ekstrahastighety
   størrelse = størrelse + økningshastighet
 
@@ -50,7 +52,7 @@ function draw() {
     circle(xpos, ypos, størrelse)
     
   }
-  
+
   let s = 'Poengsum ' + poeng;
   fill(255);
   text(s, 10, 10, 100, 100);
@@ -62,6 +64,7 @@ function draw() {
     ekstrahastighetx = random(-0.7, 0.7)
     ekstrahastighety = random(-0.7, 0.7)
     hp = hp -1
+    økningshastighet = 1
   }
   stroke(0, 255, 0)
   if(poeng == 5) {
@@ -81,7 +84,7 @@ function draw() {
     fill(60)
     poeng = 0
   }
-  
+
 
   line(mouseX+22,mouseY+22,mouseX-22,mouseY-22) 
   line(mouseX-22,mouseY+22,mouseX+22,mouseY-22)
