@@ -9,13 +9,13 @@ let ekstrahastighety = 0.5
 let økningshastighet = .2
 let antallBalls = 1
 let poeng = 0
+let balls = []
 
 function setup() { 
   cnv = createCanvas(1300, 600); 
   cnv.mousePressed(clicked)
 
 } 
-let liste = [50, 50, 50, 50]
 
 function preLoad() {
   img = loadImage('Bilder/Stars.jpg') 
@@ -42,7 +42,6 @@ function clicked() {
 function draw() { 
   noStroke()
   background(30)
-
   xpos = xpos + ekstrahastighetx
   ypos = ypos + ekstrahastighety
   størrelse = størrelse + økningshastighet
@@ -61,8 +60,8 @@ function draw() {
     størrelse = 25
     xpos = random(300, 1000);
     ypos = random(200, 400);
-    ekstrahastighetx = random(-0.7, 0.7)
-    ekstrahastighety = random(-0.7, 0.7)
+    ekstrahastighetx = random(-1, 1)
+    ekstrahastighety = random(-1, 1)
     hp = hp -1
     økningshastighet = 1
   }
