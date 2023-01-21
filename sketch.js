@@ -54,7 +54,7 @@ function clicked() {
 
 function draw() { 
   noStroke()
-  background(0,0,60)
+  background(0,0,40)
   xpos = xpos + ekstrahastighetx
   ypos = ypos + ekstrahastighety
   størrelse = størrelse + økningshastighet
@@ -85,7 +85,7 @@ function draw() {
   //vanskelighetsgrad regler
   if(vanskelighetsgrad == 3) {
     stroke(255,0,0)
-    økningshastighet = 10
+    økningshastighet = 8
    
   }
   if(vanskelighetsgrad == 2) {
@@ -95,7 +95,7 @@ function draw() {
   }
   if (vanskelighetsgrad == 1) {
     stroke(0,255,0)
-    økningshastighet = 4
+    økningshastighet = 2
     }
 
     //skjekker om hp er for lav
